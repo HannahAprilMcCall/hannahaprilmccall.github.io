@@ -1,0 +1,53 @@
+/* Define font faces at the root level */
+@font-face {
+    font-family: 'Jost';
+    src: url('fonts/Jost-Bold.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+}
+
+@font-face {
+    font-family: 'Jost-X';
+    src: url('fonts/Jost-ExtraBold.ttf') format('truetype');
+    font-weight: 800; /* Extra Bold */
+}
+
+@font-face {
+    font-family: 'Noir';
+    src: url('fonts/NoirPro-Regular.otf') format('opentype');
+    font-weight: 400; /* Regular */
+}
+
+/* General styles */
+body {
+    background-color: #989898;
+    background-image: url('images/backerTexture.jpg');
+    background-repeat: repeat;
+    margin-left: 50px;
+}
+
+h1 {
+    color: #010101;
+    font-family: 'Jost-X',  sans-serif;
+    font-weight: 'ExtraBold';
+    font-size: 60px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    transform: rotate(0.2deg);
+    
+}
+
+h2 {
+    margin-top: -15px;
+    color: #010101;
+    font-family: 'Jost', sans-serif;
+    font-weight: 'Bold';
+    font-size: 30px;
+    transform: rotate(-0.1deg);
+}
+
+p {
+    color: #010101;
+    font-family: 'Noir', sans-serif;
+    font-size: 24px;
+}
+
