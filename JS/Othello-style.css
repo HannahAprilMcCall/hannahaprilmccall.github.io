@@ -1,0 +1,31 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+#turn-paragraph {
+  margin-left: 30px;
+  color: white;
+  font-size: 24px;
+  font-family: Roboto;
+}
+
+#blackScore-paragraph {
+  margin-left: 30px;
+  margin-bottom: 0px;
+  color: white;
+  font-size: 20px;
+  font-family: Roboto;
+}
+
+#whiteScore-paragraph {
+  margin-left: 30px;
+  margin-top: 0px;
+  color: white;
+  font-size: 20px;
+  font-family: Roboto;
+}
