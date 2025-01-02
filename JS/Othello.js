@@ -1,6 +1,6 @@
 var Othello = new p5(function(p) {
-  var canvasWidth = 360;
-  var canvasHeight = 360;
+  var canvasWidth = 500;
+  var canvasHeight = 500;
   var gridCellsAcross = 10; // must be even
   var pieceColour = [];
   var currentPlayer = 1;
