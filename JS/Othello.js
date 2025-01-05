@@ -9,7 +9,7 @@ var Othello = new p5(function(p) {
   var blackScore = 0;
   var whiteScore = 0;
 
-  setup = function() 
+  p.setup = function() 
   {
     turnP = p.createP();
     turnP.parent("p5project1");
@@ -86,7 +86,7 @@ var Othello = new p5(function(p) {
     p.vertex(x + gridSpacing * 0.8, y + gridSpacing * 0.8);
     p.vertex(x + gridSpacing * 0.8, y + gridSpacing * 0.2);
     p.vertex(x + gridSpacing * 0.2, y + gridSpacing * 0.2);
-    p.endShape(CLOSE);
+    p.endShape(p.CLOSE);
     
     p.noStroke();
     p.fill([0,110,42])
@@ -97,7 +97,7 @@ var Othello = new p5(function(p) {
     p.vertex(x + gridSpacing * 0.8, y + gridSpacing * 0.8);
     p.vertex(x + gridSpacing * 0.9, y + gridSpacing * 0.9);
     p.vertex(x + gridSpacing * 0.1, y + gridSpacing * 0.9);
-    p.endShape(CLOSE);
+    p.endShape(p.CLOSE);
     
   }
 
@@ -125,29 +125,31 @@ var Othello = new p5(function(p) {
     var gridSpacing = canvasWidth / gridCellsAcross;
     var i = p.floor(p.mouseX / gridSpacing);
     var j = p.floor(p.mouseY / gridSpacing);
-    
-    if (checkValidMove(i, j, currentPlayer)) {
-      if (currentPlayer == 1) {
-        if (pieceColour[i][j] != -1) {
-          pieceColour[i][j] = -1;
-          flipPieces(i, j, -1);
-          currentPlayer = -1;
-          turnP.html("White's turn");
+
+    if (p.mouseX >= 0 && p.mouseX <= canvasWidth && p.mouseY >= 0 && p.mouseY <= canvasHeight) {
+
+      if (checkValidMove(i, j, currentPlayer)) {
+        if (currentPlayer == 1) {
+          if (pieceColour[i][j] != -1) {
+            pieceColour[i][j] = -1;
+            flipPieces(i, j, -1);
+            currentPlayer = -1;
+            turnP.html("White's turn");
+          } else {
+            console.log("Illegal move");
+          }
         } else {
-          console.log("Illegal move");
-        }
-      } else {
-        if (pieceColour[i][j] != 1) {
-          pieceColour[i][j] = 1;
-          flipPieces(i, j, 1);
-          currentPlayer = 1;
-          turnP.html("Black's turn");
-        } else {
-          console.log("Illegal move");
+          if (pieceColour[i][j] != 1) {
+            pieceColour[i][j] = 1;
+            flipPieces(i, j, 1);
+            currentPlayer = 1;
+            turnP.html("Black's turn");
+          } else {
+            console.log("Illegal move");
+          }
         }
       }
     }
-    //console.log([i,j]);
     
     var scores = scoreCount();
     //console.log("black: " +  + ", white: " + scores[1])
@@ -171,12 +173,12 @@ var Othello = new p5(function(p) {
     var player = currentPlayer * -1;
 
     // define the bounds of the loop
-    var iMin = max(0, i - 1);
-    var jMin = max(0, j - 1);
-    var iMax = min(gridCellsAcross - 1, i + 1);
-    var jMax = min(gridCellsAcross - 1, j + 1);
+    var iMin = p.max(0, i - 1);
+    var jMin = p.max(0, j - 1);
+    var iMax = p.min(gridCellsAcross - 1, i + 1);
+    var jMax = p.min(gridCellsAcross - 1, j + 1);
 
-      if (abs(pieceColour[i][j]) != 0){
+      if (p.abs(pieceColour[i][j]) != 0){
       return false;
     }else{
       // loop over the neighborhood of the cell
@@ -184,7 +186,7 @@ var Othello = new p5(function(p) {
         for (var jj = jMin; jj <= jMax; jj++) {
           // ignore the cell itself
           if (ii != i || jj != j) {
-            if (abs(pieceColour[ii][jj]) == 1) {
+            if (p.abs(pieceColour[ii][jj]) == 1) {
               //console.log("piece adjacent");
               
               if (wouldFlip(i, j, player)){
