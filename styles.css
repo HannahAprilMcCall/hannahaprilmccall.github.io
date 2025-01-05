@@ -22,7 +22,7 @@ body {
     background-color: #989898;
     background-image: url('images/backerTexture-light.jpg');
     background-repeat: repeat;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 canvas {
